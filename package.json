@@ -1,0 +1,24 @@
+{
+  "name": "typescript",
+  "type": "module",
+  "description": "Curso de TypeScript",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjromano/TypeScript.git"
+  },
+  "homepage": "https://github.com/hjromano/TypeScript#readme",
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/node": "^25.0.10"
+  }
+}
