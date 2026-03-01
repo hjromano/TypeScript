@@ -1,18 +1,11 @@
-
-
-
-
-
-function showInfo(date, options = {}) {
-
-    console.log(date.toLocaleDateString());
-    if (options.displayDay) {
-        console.log("dia", date.getDate())
-    }
-    if (options.displayMonth) {
-        console.log("mês", date.getMonth())
-    }
-    if (options.displayYear) {
-        console.log("ano", date.getFullYear())
-    }
+function createUser(name) {
+    return {name, createAt: new Date()}
 }
+
+const higor = createUser("Higor");
+
+function updateWallet(user, wallet) {
+    user.wallet = {...user.wallet, ...wallet}
+}
+
+updateWallet(higor, {coins: 10 })
