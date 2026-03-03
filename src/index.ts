@@ -11,9 +11,17 @@ interface User {
     wallet?: UserWallet;
 }
 
+interface User {
+    talk(): void;
+}
+
 
 function createUser(name: string): User {
-    return {name, createAt: new Date(), }
+    return {name, createAt: new Date(), 
+        talk() {
+            console.log("Eu sou", name)
+        },
+    }
 }
 
 function updateWallet(user: User, wallet: UserWallet) {
