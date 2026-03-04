@@ -31,3 +31,38 @@ function updateWallet(user: User, wallet: UserWallet) {
 const higor = createUser('Higor');
 
 updateWallet(higor, { coins: 100 });
+
+
+// Criando novas interfaces a partir de outras
+
+// interface Admin extends User {
+  // name: string;
+  // createAt: Date;
+  // wallet?: UserWallet;
+ //  ban(user: User): void;
+ //  kick(user: User): void;
+// }
+
+interface Admin extends User {
+    ban(user: User): void;
+    kick(user: User): void;
+}
+
+function promoteUser(user: User): Admin {
+    return {
+        ...user,
+        ban(usertoBan) {
+            console.log(usertoBan, "foi banido por", this.name)
+        },
+        kick(usertoKick) {
+            console.log(usertoKick, "foi kickado por", this.name)
+        },
+    }
+}
+
+const adminHigor = promoteUser(higor);
+
+function adminActions(admin: Admin) {
+}
+
+adminActions(adminHigor);
