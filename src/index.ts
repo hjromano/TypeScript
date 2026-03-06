@@ -1,9 +1,37 @@
-// types
+interface Dog {
+  name: string;
+  breed: string;
+  bark(): string
+}
 
-type Input = string | number;
+interface Cat {
+  name: string;
+  color: string;
+  meow(): string
+}
 
-function prompt(input: Input) {
+interface Bird {
+  name: string;
+  wingSpan: number;
+  chirp(): string
+}
+
+interface Cow {
+  name: string;
+  weight: number;
+  moo(): string
+}
+
+type Animal = Dog | Cat | Bird | Cow;
+
+function createAnimal(animal: Animal) {
 
 }
 
-prompt("Higor")
+createAnimal({
+    name: "BUBY",
+    breed: "yorkshire",
+    bark() {
+        return "Woof!";
+    }
+})
