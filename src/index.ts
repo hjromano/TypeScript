@@ -13,14 +13,32 @@
    // direction: Direction.East
 //}
 
-enum ClothingSize {
-    Small = 'P',
-    Medium = 'M',
-    Large = 'G',
-    ExtraLarge = 'GG'
+//enum ClothingSize {
+  //  Small = 'P',
+   // Medium = 'M',
+   // Large = 'G',
+    //ExtraLarge = 'GG'
+//}
+
+//const cloth = {
+  //  color: 'red',
+   // size: ClothingSize.Medium
+//}
+
+enum ButtonStyle {
+    Green,
+    Blue,
+    Red,
+    Gray
+}
+interface Button {
+    label: string;
+    emoji: string;
+    style: ButtonStyle;
 }
 
-const cloth = {
-    color: 'red',
-    size: ClothingSize.Medium
+const button: Button = {
+    label: 'Click me',
+    emoji: '👍',
+    style: ButtonStyle.Green
 }
