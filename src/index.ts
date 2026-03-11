@@ -1,44 +1,19 @@
-// Enum
 
-//enum Direction {
-   // North=1,
-   // South,
-   // East,
-   // West
-//}
 
-//const pos = {
-    //x: 100,
-   // y: 230,
-   // direction: Direction.East
-//}
-
-//enum ClothingSize {
-  //  Small = 'P',
-   // Medium = 'M',
-   // Large = 'G',
-    //ExtraLarge = 'GG'
-//}
-
-//const cloth = {
-  //  color: 'red',
-   // size: ClothingSize.Medium
-//}
-
-enum ButtonStyle {
-    Green,
-    Blue,
-    Red,
-    Gray
-}
-interface Button {
-    label: string;
-    emoji: string;
-    style: ButtonStyle;
+interface Robot {
+    name: string;
+    fuel:string;
 }
 
-const button: Button = {
-    label: 'Click me',
-    emoji: '👍',
-    style: ButtonStyle.Green
+interface Human {
+    name: string;
+    age: number;
+}
+
+type Cyborg = Robot & Human;
+
+const cyborg1: Cyborg = {
+    name: "Cyborg1",
+    fuel: "Electricity",
+    age: 5
 }
