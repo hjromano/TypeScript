@@ -1,19 +1,18 @@
-
-
-interface Robot {
-    name: string;
-    fuel:string;
+interface myFetchOptions {
+    printInput?: boolean;
+    printTime?: boolean;
+}
+type RequestOptions = myFetchOptions & RequestInit;
+export function myFetch(input: string, options?: RequestOptions) {
+    if (options?.printInput) {
+        console.log("Input:", input);
+    }
+    if (options?.printTime) {
+        console.log("Time:", new Date().toDateString())
+    }
+    return fetch(input, options);
 }
 
-interface Human {
-    name: string;
-    age: number;
-}
-
-type Cyborg = Robot & Human;
-
-const cyborg1: Cyborg = {
-    name: "Cyborg1",
-    fuel: "Electricity",
-    age: 5
-}
+myFetch("http://loclalhost:3000/api/data", {
+    method: "GET",
+})
