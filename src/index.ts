@@ -1,18 +1,25 @@
-type Primitives = string | number | boolean;
+enum TrafficLightType {
+  Red,
+  Yellow,
+  Green,
+}
 
-export function main(value: Primitives) {
-    
-    if (typeof value === "string"){
-        return;
+interface YellowColor {
+    wait(): void;
+}
 
-    }
-    if (typeof value === "number"){
-        return;
-    }
-    if (typeof value === "boolean"){
-        
-    }
-    value;
+interface RedColor {
+    stop(): void;
+}
 
+interface GreenColor {
+    drive(): void;
+}
 
+type TrafficLight = YellowColor | RedColor | GreenColor;
+
+const trafficLight: TrafficLight = {
+    wait() {
+
+    },
 }
