@@ -1,29 +1,5 @@
-enum TrafficLightType {
-  Red,
-  Yellow,
-  Green,
-}
+type Action = "create" | "update" | "delete";
 
-interface YellowColor {
-    type: TrafficLightType.Yellow;
-    wait(): void;
-}
+function manage(action: Action){}
 
-interface RedColor {
-    type: TrafficLightType.Red;
-    stop(): void;
-}
-
-interface GreenColor {
-    type: TrafficLightType.Green;
-    drive(): void;
-}
-
-type TrafficLight = YellowColor | RedColor | GreenColor;
-
-const trafficLight: TrafficLight = {
-    type: TrafficLightType.Yellow,
-    wait() {
-
-    },
-}
+manage("create");
