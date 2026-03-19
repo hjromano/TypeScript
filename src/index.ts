@@ -1,5 +1,11 @@
-type Action = "create" | "update" | "delete";
+type ImageSize = 8 | 16 | 24 | 32 | 48 | 64 | 128 | 256 | 512 | 1024 | 2048
 
-function manage(action: Action){}
+interface Image {
+    name: string;
+    size: ImageSize
+}
 
-manage("create");
+const image: Image = {
+    name: 'example.png',
+    size: 64,
+}
