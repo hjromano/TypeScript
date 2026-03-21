@@ -1,11 +1,15 @@
-type ImageSize = 8 | 16 | 24 | 32 | 48 | 64 | 128 | 256 | 512 | 1024 | 2048
+import { readFile } from 'fs/promises';
 
-interface Image {
-    name: string;
-    size: ImageSize
-}
+type JSONValue = string | number  | boolean | JSONValue[] | { [key: string]: JSONValue };
 
-const image: Image = {
-    name: 'example.png',
-    size: 64,
+const jsonstring = await readFile('./data.json', 'utf-8');
+const json: JSONValue = JSON.parse(jsonstring);
+
+if (typeof json === "string") {}
+
+if (Array.isArray(json)) {
+    json.forEach(value => {
+        if (typeof value === "string") {
+            value.toUpperCase();
+        }   });
 }
