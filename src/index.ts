@@ -1,15 +1,10 @@
-import { readFile } from 'fs/promises';
-
-type JSONValue = string | number  | boolean | JSONValue[] | { [key: string]: JSONValue };
-
-const jsonstring = await readFile('./data.json', 'utf-8');
-const json: JSONValue = JSON.parse(jsonstring);
-
-if (typeof json === "string") {}
-
-if (Array.isArray(json)) {
-    json.forEach(value => {
-        if (typeof value === "string") {
-            value.toUpperCase();
-        }   });
+type FindItemPredicate = (number) | ( (value: string, index: number) => boolean );
+function findItem(array: string[], predicated: FindItemPredicate){
+    if (typeof predicated === 'number') {
+        return array[predicated];
+    }
+    return array.find(predicated)
 }
+
+findItem(['a', 'b', 'c'], 1);
+findItem(['a', 'b', 'c'], (value, index) => value === 'b');
