@@ -6,3 +6,9 @@ function bootstrap(dirname: string, args?: Args[]): boolean {
 type Mainfunction = (args: string[]) => void;
 
 const main: Mainfunction = (args) => {}
+
+interface Functions {
+    run(context: any): void;
+    execute():boolean;
+    handle(req: Request, res: Response): void;
+}
