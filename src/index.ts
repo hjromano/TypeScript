@@ -12,3 +12,13 @@ interface Functions {
     execute():boolean;
     handle(req: Request, res: Response): void;
 }
+
+const functions: Functions = {
+    execute() {
+        return true;
+    },
+    handle(req,res) {
+    },
+    run(context) {
+    },
+}    
