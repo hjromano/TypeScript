@@ -21,4 +21,12 @@ const functions: Functions = {
     },
     run(context) {
     },
-}    
+}
+
+function customLog(text:string, color:string = "red", time?: Date, author?: string){
+    console.log(color,text);
+    if (time) console.log("At:", time.toString());
+    if (author) console.log("By:", author);
+}
+
+customLog("Hello world", "blue", new Date(), "John Doe");
