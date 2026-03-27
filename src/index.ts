@@ -23,10 +23,25 @@ const functions: Functions = {
     },
 }
 
-function customLog(text:string, color:string = "red", time?: Date, author?: string){
+function oldcustomLog(text:string, color:string = "red", time?: Date, author?: string){
     console.log(color,text);
     if (time) console.log("At:", time.toString());
     if (author) console.log("By:", author);
 }
 
-customLog("Hello world", "blue", new Date(), "John Doe");
+oldcustomLog("Hello world", "blue", new Date(), "John Doe");
+
+interface customLogOptions {
+    color?: string;
+    time?: Date;
+    author?: string;
+}
+
+function customLog(text:string, options: customLogOptions = {}){
+    const { color = "red", time, author } = options;
+    console.log(color, text);
+    if (time) console.log("At:", time.toString());
+    if (author) console.log("By:", author);
+}
+
+customLog("Hello world", { time: new Date(), author: "John Doe" });
