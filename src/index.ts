@@ -1,9 +1,11 @@
 export class Player {
+    private static players: Player[] = [];
     private name: string;
     private health: number;
     constructor(name: string){
         this.name = name;
         this.health = 100;
+        Player.players.push(this);
     }
     public getName(){
         return this.name;
