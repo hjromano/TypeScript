@@ -1,47 +1,14 @@
-export class Player {
-    private static players: Player[] = [];
-    private name: string;
-    private health: number;
-    constructor(name: string){
+class Animal {
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
         this.name = name;
-        this.health = 100;
-        Player.players.push(this);
+        this.age = age;
     }
-    public getName(){
-        return this.name;
+    MakeSound():void {
+        console.log(`${this.name} esta fazendo um som.`);
     }
-    public getHealth(){
-        return this.health;
-    }
-    public damage(amount: number, damager?: Player){
-        const updatedHealth = this.health - amount;
-        console.log(damager
-            ? `${damager.getName()} causou ${amount} de dano em ${this.name}.`
-            : `${this.name} recebeu ${amount} de dano.`
-
-        )
-
-        if(updatedHealth <= 0){
-            this.health = 0;
-            this.die();
-            return
-        }
-        this.health = updatedHealth;
-    }
-    private die(damager?: Player){
-        if(damager){
-            console.log(`${this.name} foi morto por ${damager.getName()}.`);
-            return;
-        }
-        console.log(this.name + " morreu!");
-    }
-
 }
 
-
-const Higuito = new Player("Higuito");
-const Maradona = new Player("Maradona");
-
-Higuito.damage(30, Maradona);
-
-
+const dog = new Animal("Rex", 5);
+dog.MakeSound();
