@@ -10,5 +10,13 @@ class Animal {
     }
 }
 
-const dog = new Animal("Rex", 5);
-dog.MakeSound();
+class Dog extends Animal {
+    breed: string;
+    constructor(name: string, age: number, breed: string) {
+        super(name, age);
+        this.breed = breed;
+    }
+}
+
+const dog = new Dog("Rex", 5, "Labrador");
+dog.MakeSound(); // Output: Rex esta fazendo um som.
