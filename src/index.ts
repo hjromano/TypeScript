@@ -1,25 +1,13 @@
-class Animal {
-    name: string;
-    age: number;
-    constructor(name: string, age: number) {
-        this.name = name;
-        this.age = age;
-    }
-    MakeSound():void {
-        console.log(`${this.name} esta fazendo um som.`);
-    }
+interface Drivable{
+    startEngine(): void;
+    drive(): void;
 }
 
-class Dog extends Animal {
-    breed: string;
-    constructor(name: string, age: number, breed: string) {
-        super(name, age);
-        this.breed = breed;
+class Car implements Drivable{
+    startEngine(): void {
+        console.log("Engine started.");
     }
-    MakeSound(): void {
-        console.log(`${this.name} esta latindo.`);
+    drive(): void {
+        console.log("Car is driving.");
     }
 }
-
-const dog = new Dog("Rex", 5, "Labrador");
-dog.MakeSound(); // Output: Rex esta latindo.
