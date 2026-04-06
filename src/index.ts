@@ -1,25 +1,23 @@
-abstract class Shape {
-    abstract area(): number;
-
-    describe(): void {
-        console.log("Isso é uma forma geométrica.");
+class Person {
+    protected age: number;
+    constructor(age: number) {
+        this.age = age;
+    }
+    protected getAge(): number {
+        return this.age;
     }
 }
 
-class Circle extends Shape {
-    radius: number;
-    constructor(radius: number) {
-        super();
-        this.radius = radius;
+class Employee extends Person {
+    private name: string;
+    constructor(name: string, age: number) {
+        super(age);
+        this.name = name;
     }
-    area(): number {
-        return Math.PI * this.radius ** 2;
-    }
-    describe(): void {
-        console.log("Isso é um círculo.");
+    public introduce(): void {
+        console.log(`Olá, meu nome é ${this.name} e tenho ${this.getAge()} anos.`);
     }
 }
 
-const circle = new Circle(5);
-circle.area(); // 78.53981633974483
-circle.describe(); // Isso é um círculo.
+const employee = new Employee("Higor", 30);
+employee.introduce(); // Olá, meu nome é Higor e tenho 30 anos.
