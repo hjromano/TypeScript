@@ -1,17 +1,29 @@
-/**
- * Criar uma nova data a partir de outra
- */
-function createDate(value: Date): Date;
-/**
- * Criar uma nova data usando uma data por extenso
- */
-function createDate(value: string): Date;
-/**
- * Criar uma nova data usando uma data numerica
- */
-function createDate(value: number): Date;
-function createDate(value: Date | string | number): Date {
-    return new Date(value);
+interface Person {
+    name: string;
+    age: number;
+}
+interface Dog {
+    name: string;
+    breed: string;
+}
+interface House {
+    address: string;
+    size: number;
 }
 
-createDate()
+function generate(type: "person"): Person;
+function generate(type: "dog"): Dog;
+function generate(type: "house"): House;
+function generate(type: "person" | "dog" | "house" ){
+    switch(type){
+        case "person":
+            return { name: "Alice", age: 30 };
+        case "dog":
+            return { name: "Buddy", breed: "Golden Retriever" };
+        case "house":
+            return { address: "123 Main St", size: 2000 };
+    }
+}
+
+const house = generate("house");
+console.log(house.address); // Output: 123 Main St
