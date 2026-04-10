@@ -1,29 +1,34 @@
-interface Person {
-    name: string;
-    age: number;
+interface Component { id: string; label: string; }
+
+interface Button extends Component {
+    style: string;
 }
-interface Dog {
-    name: string;
-    breed: string;
+interface SelectMenu extends Component {
+    options: string[];
 }
-interface House {
-    address: string;
-    size: number;
+enum InputType {
+    String,
+    Number,
+    Date,
+    Email,
+    Password
+}
+interface Input extends Component {
+    type: InputType;
 }
 
-function generate(type: "person"): Person;
-function generate(type: "dog"): Dog;
-function generate(type: "house"): House;
-function generate(type: "person" | "dog" | "house" ){
-    switch(type){
-        case "person":
-            return { name: "Alice", age: 30 };
-        case "dog":
-            return { name: "Buddy", breed: "Golden Retriever" };
-        case "house":
-            return { address: "123 Main St", size: 2000 };
+function buildComponent(id: string, label: string, style: string): Button;
+function buildComponent(id: string, label: string, options: string[]): SelectMenu;
+function buildComponent(id: string, label: string, type: InputType): Input;
+function buildComponent(id: string, label: string, arg: string | string[] | InputType){
+    if (typeof arg === 'string') {
+        return { id, label, style: arg }
     }
+    if (Array.isArray(arg)) {
+        return { id, label, options: arg }
+    }
+    return { id, label, type: arg }
 }
 
-const house = generate("house");
-console.log(house.address); // Output: 123 Main St
+const button = buildComponent("myButton", "Click me", ["primary", "large"]);
+button.
