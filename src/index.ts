@@ -1,34 +1,43 @@
-interface Component { id: string; label: string; }
-
-interface Button extends Component {
-    style: string;
+interface Triangle {
+    sideA: number;
+    sideB: number;
+    sideC: number;
 }
-interface SelectMenu extends Component {
-    options: string[];
+interface Equileteral extends Triangle {
+    type: "equilateral";
 }
-enum InputType {
-    String,
-    Number,
-    Date,
-    Email,
-    Password
+interface Isosceles extends Triangle {
+    type: "isosceles";
 }
-interface Input extends Component {
-    type: InputType;
+interface Scalene extends Triangle {
+    type: "scalene";
 }
 
-function buildComponent(id: string, label: string, style: string): Button;
-function buildComponent(id: string, label: string, options: string[]): SelectMenu;
-function buildComponent(id: string, label: string, type: InputType): Input;
-function buildComponent(id: string, label: string, arg: string | string[] | InputType){
-    if (typeof arg === 'string') {
-        return { id, label, style: arg }
+type Triangles = Equileteral | Isosceles | Scalene;
+
+function triangle(sides: Number): Equileteral
+function triangle(sideA: Number, sideBC: Number): Isosceles
+function triangle(sideA: Number, sideB: Number, sideC: Number): Scalene
+function triangle(A: Number, B?: Number, C?: Number) {
+    if (B && C) {
+        return {
+            type: "scalene",
+            sideA: A, sideB: B, sideC: C
+         }
     }
-    if (Array.isArray(arg)) {
-        return { id, label, options: arg }
+    if (B && !C) {
+        return {
+            type: "isosceles",
+            sideA: A, sideB: B, sideC: B
+         }
     }
-    return { id, label, type: arg }
+    return {
+        type: "equilateral",
+        sideA: A, sideB: A, sideC: A
+     }
+
 }
 
-const button = buildComponent("myButton", "Click me", ["primary", "large"]);
-button.
+triangle(1) // Equileteral
+triangle(1, 2) // Isosceles
+triangle(1, 2, 3) // Scalene
