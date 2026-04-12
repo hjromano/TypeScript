@@ -1,43 +1,21 @@
-interface Triangle {
-    sideA: number;
-    sideB: number;
-    sideC: number;
-}
-interface Equileteral extends Triangle {
-    type: "equilateral";
-}
-interface Isosceles extends Triangle {
-    type: "isosceles";
-}
-interface Scalene extends Triangle {
-    type: "scalene";
-}
+class Player {
+    public name: string;
+    public nickname: string;
+    public health: number;
 
-type Triangles = Equileteral | Isosceles | Scalene;
-
-function triangle(sides: Number): Equileteral
-function triangle(sideA: Number, sideBC: Number): Isosceles
-function triangle(sideA: Number, sideB: Number, sideC: Number): Scalene
-function triangle(A: Number, B?: Number, C?: Number) {
-    if (B && C) {
-        return {
-            type: "scalene",
-            sideA: A, sideB: B, sideC: C
-         }
+    constructor(name: string, nickname: string)
+    constructor(name: string, health: number)
+    constructor(name: string, arg: string | number) {
+        this.name = name;
+        if (typeof arg === 'string') {
+            this.nickname = arg;
+            this.health = 100; // Default health
+        } else {
+            this.health = arg;
+            this.nickname = name; // Default nickname is the same as name
+        }
     }
-    if (B && !C) {
-        return {
-            type: "isosceles",
-            sideA: A, sideB: B, sideC: B
-         }
-    }
-    return {
-        type: "equilateral",
-        sideA: A, sideB: A, sideC: A
-     }
-
 }
 
-triangle(1) // Equileteral
-triangle(1, 2) // Isosceles
-triangle(1, 2, 3) // Scalene
+const higor = new Player('Higor', 'Hig');
+const maria = new Player('Maria', 80);
