@@ -1,21 +1,36 @@
-class Player {
-    public name: string;
-    public nickname: string;
-    public health: number;
+interface Triangle {
+    sideA: number;
+    sideB: number;
+    sideC: number;
+}
+interface Equilateral extends Triangle {
+    type: "equilateral";
+}
+interface Isosceles extends Triangle {
+    type: "isosceles";
+}
+interface Scalene extends Triangle {
+    type: "scalene";
+}
+type Triangles = Equilateral | Isosceles | Scalene
 
-    constructor(name: string, nickname: string)
-    constructor(name: string, health: number)
-    constructor(name: string, arg: string | number) {
-        this.name = name;
-        if (typeof arg === 'string') {
-            this.nickname = arg;
-            this.health = 100; // Default health
-        } else {
-            this.health = arg;
-            this.nickname = name; // Default nickname is the same as name
+class TriangleBuilder {
+    static build(sides: number): Equilateral;
+    static build(sideA: number, sideBC: number): Isosceles;
+    static build(sideA: number, sideB: number, sideC: number): Scalene;
+    static build(A: number, B?: number, C?: number){
+        if(B && C){
+            return {
+                type: "scalene",
+                sideA: A, sideB: B, sideC: C
+            }
         }
+        return {
+            sideA: A, sideB: A, sideC: A,
+            type: "equilateral"
+        }
+     
     }
 }
 
-const higor = new Player('Higor', 'Hig');
-const maria = new Player('Maria', 80);
+TriangleBuilder.build()
