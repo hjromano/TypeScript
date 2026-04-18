@@ -1,15 +1,7 @@
-interface Fish {
-    swim: () => void;
-}
-
-interface Bird {
-    fly: () => void;
-}
-
-function move(animal: Fish | Bird) {
-    if ('swim' in animal) {
-        animal.swim();
+function main(value: string[] | Date){
+    if("push" in value){
+        value.push("Hello");
     } else {
-        animal.fly();
+        console.log(value.getDate());
     }
 }
