@@ -28,14 +28,19 @@ function isDriver(value: Professionals): value is Driver {
 }
 
 function execute(professional: Professionals) {
-    if (isChef(professional)) {
+  switch(true){
+    case isChef(professional):{
         professional
-        return;
+        break;
     }
-    if (isDriver(professional)) {
-        professional.drive();
-        return;
+    case isTeacher(professional):{
+        professional
+        break
     }
-    professional.teach();
+    case isDriver(professional):{
+        professional
+        break;
+    }
+  }
     
 }
