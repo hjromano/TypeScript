@@ -1,6 +1,6 @@
 interface Chef {
     cook(): void;
-    certificate: string;
+    diploma: string;
 }
 
 interface Teacher {
@@ -16,15 +16,15 @@ interface Driver {
 type Professionals = Chef | Teacher | Driver;
 
 function isChef(value: Professionals): value is Chef {
-    return (value as Chef).cook !== undefined;
+    return (value as Chef).diploma !== undefined && (value as Chef).cook !== undefined
 }
 
 function isTeacher(value: Professionals): value is Teacher {
-    return (value as Teacher).teach !== undefined;
+    return (value as Teacher).diploma !== undefined && (value as Teacher).teach !== undefined
 }
 
 function isDriver(value: Professionals): value is Driver {
-    return (value as Driver).drive !== undefined;
+    return (value as Driver).license !== undefined && (value as Driver).drive !== undefined
 }
 
 function execute(professional: Professionals) {
@@ -43,4 +43,4 @@ function execute(professional: Professionals) {
     }
   }
     
-}
+}0
