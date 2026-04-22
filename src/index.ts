@@ -1,46 +1,48 @@
-interface Chef {
-    cook(): void;
-    diploma: string;
-}
-
-interface Teacher {
-    teach(): void;
-    diploma: string;
-}
-
-interface Driver {
-    drive(): void;
-    license: string;
-}
-
-type Professionals = Chef | Teacher | Driver;
-
-function isChef(value: Professionals): value is Chef {
-    return (value as Chef).diploma !== undefined && (value as Chef).cook !== undefined
-}
-
-function isTeacher(value: Professionals): value is Teacher {
-    return (value as Teacher).diploma !== undefined && (value as Teacher).teach !== undefined
-}
-
-function isDriver(value: Professionals): value is Driver {
-    return (value as Driver).license !== undefined && (value as Driver).drive !== undefined
-}
-
-function execute(professional: Professionals) {
-  switch(true){
-    case isChef(professional):{
-        professional
-        break;
+class Professionals {
+    isChef(): this is Chef {
+        return this instanceof Chef
     }
-    case isTeacher(professional):{
-        professional
-        break
+    isTeacher(): this is Teacher {
+        return this instanceof Teacher
     }
-    case isDriver(professional):{
-        professional
-        break;
+    isDriver(): this is Driver {
+        return this instanceof Driver
     }
-  }
-    
-}0
+
+
+}
+
+class Chef extends Professionals {
+    public cook(): void {}
+    public certificate: string = "Chef Higor"
+}
+class Teacher extends Professionals {
+    public teach(): void {}
+    public diploma: string = "Teacher Higor"
+}
+class Driver extends Professionals {
+    public drive(): void {}
+    public license: string = "Driver Higor"
+}
+
+function execute(professional: Professionals): void {
+    if (professional.isDriver()) {
+        professional.drive();
+    }
+
+    switch (true) {
+        case professional.isChef():{
+            professional.cook();
+            break;
+        }
+        case professional.isTeacher():{
+            professional.teach();
+            break;
+        }
+        case professional.isDriver():{
+            professional.drive();
+            break;
+        }
+    }
+
+}
