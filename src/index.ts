@@ -1,11 +1,7 @@
 function printValue(value: string | number | boolean) {
-    if (typeof value === "string") {
+    if (typeof value === "string" || typeof value === "number") {
         value
         return;
     }
-    if (typeof value === "number") {
-        value
-        return;
-    }
-    value;
+
 }
