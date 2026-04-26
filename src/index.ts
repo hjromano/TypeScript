@@ -1,23 +1,15 @@
-class Dog {
-    bark() {
-        console.log("Woof!");
-    }
+interface Fish {
+    swin: () => void;
 }
 
-class Cat {
-    meow() {
-        console.log("Meow!");
-    }
+interface Bird {
+    fly: () => void;
 }
 
-function makeSound(animal: Dog | Cat) {
-    if (animal instanceof Dog) {
-        animal.bark()
+function move(animal: Fish | Bird) {
+    if ('swin' in animal) {
+        animal.swin()
         return;
     }
-    animal.meow();
-
+    animal.fly()
 }
-
-const dog = new Dog();
-makeSound(dog);
