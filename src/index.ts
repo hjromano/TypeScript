@@ -1,15 +1,7 @@
-interface Fish {
-    swin: () => void;
-}
-
-interface Bird {
-    fly: () => void;
-}
-
-function move(animal: Fish | Bird) {
-    if ('swin' in animal) {
-        animal.swin()
+function main(value:string[] | Date){
+    if ("push" in value) {
+        value;
         return;
     }
-    animal.fly()
+    value;
 }
