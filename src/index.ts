@@ -1,7 +1,7 @@
-function main(value:string[] | Date){
-    if ("push" in value) {
-        value;
-        return;
-    }
-    value;
+function handle(value: string | undefined | null) {
+    if (!value) return;
+
+    value.toUpperCase();
 }
+
+handle("hello");
