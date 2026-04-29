@@ -1,7 +1,17 @@
-function handle(value: string | undefined | null) {
-    if (!value) return;
-
-    value.toUpperCase();
+interface User {
+    id: string,
+    name: string,
+    nickname?: string,
 }
 
-handle("hello");
+function handle(user?: User) {
+
+    if (!user) return;
+
+    user.id.toUpperCase();
+    user.name.toUpperCase();
+
+    if (!user.nickname) return;
+    user.nickname.toUpperCase();
+
+}
