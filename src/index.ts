@@ -1,17 +1,27 @@
-interface User {
-    id: string,
-    name: string,
-    nickname?: string,
+interface Animal {
+    name: string
+    age: number
+    follow(): void;
 }
 
-function handle(user?: User) {
+interface Human {
+    name: string
+    age: number;
+    pets: Animal[]
+}
+interface Post {
+    title: string;
+    author: Human;
+}
 
-    if (!user) return;
-
-    user.id.toUpperCase();
-    user.name.toUpperCase();
-
-    if (!user.nickname) return;
-    user.nickname.toUpperCase();
-
+function handle(value: Animal | Human | Post) {
+    if ("name" in value && "follow" in value) {
+        value
+        return;
+    }
+    if ("title" in value) {
+        value
+        return;
+    }
+    value;
 }
