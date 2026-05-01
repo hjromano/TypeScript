@@ -1,27 +1,11 @@
-interface Animal {
-    name: string
-    age: number
-    follow(): void;
+function getFirstElement(arr: (string | number)[]){
+    return arr[0];
 }
 
-interface Human {
-    name: string
-    age: number;
-    pets: Animal[]
-}
-interface Post {
-    title: string;
-    author: Human;
-}
+const names = ["Alice", "Bob", "Charlie"]
 
-function handle(value: Animal | Human | Post) {
-    if ("name" in value && "follow" in value) {
-        value
-        return;
-    }
-    if ("title" in value) {
-        value
-        return;
-    }
-    value;
-}
+const myname = getFirstElement(names);
+
+const numbers = [1, 2, 3, 4, 5];
+
+const mynumber = getFirstElement(numbers);
