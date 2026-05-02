@@ -1,11 +1,11 @@
-function getFirstElement(arr: (string | number)[]){
+function getFirstElement<T>(arr: T[]){
     return arr[0];
 }
 
-const names = ["Alice", "Bob", "Charlie"]
+const items = [
+"Higor" , "Maria",
+30, 11, 13,
+true, false, true
+]
 
-const myname = getFirstElement(names);
-
-const numbers = [1, 2, 3, 4, 5];
-
-const mynumber = getFirstElement(numbers);
+const item = getFirstElement(items);
