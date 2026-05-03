@@ -1,11 +1,8 @@
-function getFirstElement<T>(arr: T[]){
-    return arr[0];
+function isEqual<T>(a: T, b: T): boolean {
+    return a === b;
 }
 
-const items = [
-"Higor" , "Maria",
-30, 11, 13,
-true, false, true
-]
+isEqual(1, 1); // true
+isEqual('hello', 'hello'); // true
+isEqual(1, 2); // false
 
-const item = getFirstElement(items);
