@@ -1,41 +1,20 @@
-interface ApiResponse<T> {
-    data: T;
-    sucess: boolean;
-    error?: string;
-}
+class MyCustomArray<T> {
+    private items: T[] = [];
 
-interface User {
-    id: string;
-    name: string;
-    role: string;
-}
-
-function fetchUser(): ApiResponse<User> {
-    return {
-        sucess: true,
-        data: {
-            id: "123",
-            name: "John Doe",
-            role: "user"
-        }
+    public add(item: T){
+        this.items.unshift(item);
+    }
+    public remove(){
+        return this.items.shift()
+    }
+    public isEmpty(): boolean {
+        return this.items.length === 0;
     }
 }
 
-interface Book {
-    id: string;
-    title: string;
-}
+const myCustomStringArr = new MyCustomArray<string>();
+myCustomStringArr.add("Hello");
+const removed = myCustomStringArr.remove();
 
-function fetchBook(): ApiResponse<Book> {
-    return {
-        sucess: true,
-        data: {
-            id: "456",
-            title: "TypeScript for Beginners"
-        }
-    }
-}
-
-const response = fetchBook();
-
-response.data;
+const myCustomNumberArr = new MyCustomArray<number>();
+myCustomNumberArr.add(42);
