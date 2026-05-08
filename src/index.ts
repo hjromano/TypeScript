@@ -1,11 +1,17 @@
-function loglength<T extends { length: number }>(item: T){
-    console.log(item.length);
+interface Hasname {
+    name: string;
 }
 
-const numbers = [1, 2, 3, 4, 5];
-const myobj = { length: 10};
-const myName = "John Doe";
+function greet<T extends Hasname>(obj: T){
+    console.log('Olá ${obj.name}!')
+}
 
-loglength(numbers);
-loglength(myobj);
-loglength(myName);
+const player = {
+    nick: 'Neymar'
+}
+
+const user = {
+    name: 'Maria'
+}
+
+greet(user) // Olá Maria!
