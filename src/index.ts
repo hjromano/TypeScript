@@ -1,17 +1,7 @@
-interface Hasname {
-    name: string;
+function combine <T extends number | string> (a: T, b: T): string {
+    return `${a}${b}`;
 }
 
-function greet<T extends Hasname>(obj: T){
-    console.log('Olá ${obj.name}!')
-}
-
-const player = {
-    nick: 'Neymar'
-}
-
-const user = {
-    name: 'Maria'
-}
-
-greet(user) // Olá Maria!
+combine(10, 22);
+combine('Hello', 'World');
+combine(10, 'World'); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
