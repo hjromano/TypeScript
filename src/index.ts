@@ -1,22 +1,6 @@
-class Animal {
-    constructor(public name: string) {}
-}
+type Offsets = Record<number, string>;
 
-class Dog extends Animal {
-    bark() {
-        console.log("Woof!");
-    }
+const offsets: Offsets = {
+0.4:"red",
+"red": 0.4
 }
-
-class Cat extends Animal {
-    meow() {
-        console.log("Meow!");
-    }
-}
-
-function createInstance<T extends Animal>(Class: new(name: string) => T, name: string) {
-    return new Class(name);
-}
-
-const dog = createInstance(Dog, "Buddy");
-const cat = createInstance(Cat, "Whiskers");
