@@ -1,6 +1,14 @@
-type Offsets = Record<number, string>;
+interface Route {
+    path: string;
+    children?: Routes
+}
 
-const offsets: Offsets = {
-0.4:"red",
-"red": 0.4
+type Routes = Record<string, Route>;
+
+const routes: Routes = {
+    home: {path: "/home"},
+    children: {
+        auth: {path: "/"},
+    }
+
 }
