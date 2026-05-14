@@ -1,14 +1,13 @@
-interface Route {
-    path: string;
-    children?: Routes
+type Dictionary = Record<string, number | string | boolean>
+
+const dict: Dictionary = {
+    id: 10,
+    name: 'John',
+    isProgramer: true  
 }
 
-type Routes = Record<string, Route>;
-
-const routes: Routes = {
-    home: {path: "/home"},
-    children: {
-        auth: {path: "/"},
-    }
-
+if(typeof dict.id === "string") {
+    dict.id
 }
+
+dict.id
