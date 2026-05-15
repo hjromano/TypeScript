@@ -1,13 +1,10 @@
-type Dictionary = Record<string, number | string | boolean>
+type Feature = "compilleOnSave" | "autoSave" | "autoUpdate"
 
-const dict: Dictionary = {
-    id: 10,
-    name: 'John',
-    isProgramer: true  
+type Features = Record<Feature, boolean>
+
+const config: Features = {
+    autoSave: true,
+    autoUpdate: false,
+    compilleOnSave: false,
 }
 
-if(typeof dict.id === "string") {
-    dict.id
-}
-
-dict.id
