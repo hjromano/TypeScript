@@ -1,10 +1,9 @@
-type Feature = "compilleOnSave" | "autoSave" | "autoUpdate"
-
-type Features = Record<Feature, boolean>
-
-const config: Features = {
-    autoSave: true,
-    autoUpdate: false,
-    compilleOnSave: false,
+type Footer = string | {
+    text: string, iconURL?: string
 }
 
+const footerA: Footer = " administração";
+
+const footerB = "administração" as Footer;
+
+const footerC = "administração" satisfies Footer;
