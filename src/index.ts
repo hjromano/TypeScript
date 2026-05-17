@@ -1,9 +1,12 @@
-type Footer = string | {
-    text: string, iconURL?: string
+interface FooterData {
+    text: string;
+    iconURL?: string;
 }
+
+type Footer = string | FooterData;
 
 const footerA: Footer = " administração";
 
-const footerB = "administração" as Footer;
+const footerB = {} as FooterData;
 
 const footerC = "administração" satisfies Footer;
